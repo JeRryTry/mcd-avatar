@@ -7,6 +7,14 @@
 <p align="center"><b>让你的项目快速拥有麦当劳新品头像</b></p>
 
 <p align="center">
+  <a href="https://jerrytry.github.io/mcd-avatar/"><b>▶ 在线试玩</b></a>
+  &nbsp;·&nbsp;
+  <a href="https://jerrytry.github.io/mcd-avatar/avatar/wall.html">头像墙</a>
+  &nbsp;·&nbsp;
+  <a href="https://jerrytry.github.io/mcd-avatar/avatar/use-cases.html">能用在哪些地方</a>
+</p>
+
+<p align="center">
 零依赖 · 一个 canvas 一行代码 · 按用户 ID 稳定生成 · 新品上架自动换新
 </p>
 
