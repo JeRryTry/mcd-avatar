@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>菜品管理 · 今天什麦人</title>
+<style>
+  :root{
+    --mcd-red:#c8102e;--mcd-yellow:#ffc72c;--ink:#2b2320;--muted:#8a7c72;
+    --card:#fffdf8;--line:#eadfd0;--bg:#f7f1e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+  .topbar{background:var(--mcd-red);color:#fff;padding:22px 20px 18px;text-align:center}
+  .topbar h1{margin:0;font-size:22px;letter-spacing:.5px}
+  .topbar .sub{margin:6px 0 0;font-size:13px;opacity:.9}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px 40px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:18px}
+  .stats{display:flex;flex-wrap:wrap;gap:22px;font-size:14px;color:var(--muted)}
+  .stats b{display:block;font-size:22px;color:var(--ink);line-height:1.3}
+  .stats b.sel{color:var(--mcd-red)}
+  .bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:16px}
+  input[type=text]{padding:9px 12px;border:1px solid var(--line);border-radius:9px;font:inherit;font-size:13px;max-width:240px;background:#fff}
+  .btn{flex:0 0 auto;padding:9px 14px;font-size:13px;border:1px solid var(--line);background:#fff;
+    border-radius:9px;cursor:pointer;font-family:inherit;color:inherit}
+  .btn:hover{border-color:#d9c9b2}
+  .btn.primary{background:var(--mcd-yellow);border-color:var(--mcd-yellow);font-weight:600}
+  .toggle{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);cursor:pointer}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px;margin-top:16px}
+  .item{position:relative;border:2px solid var(--line);border-radius:12px;background:#fff;padding:8px;cursor:pointer;transition:.12s;text-align:left}
+  .item:hover{border-color:#d9c9b2}
+  .item.on{border-color:var(--mcd-red);background:#fff7f7}
+  .item img{width:100%;height:76px;object-fit:contain;display:block}
+  .item .nm{font-size:12px;font-weight:600;margin-top:6px;line-height:1.3;min-height:32px}
+  .item .meta{font-size:11px;color:var(--muted);display:flex;justify-content:space-between;margin-top:2px}
+  .item .hint{position:absolute;top:6px;right:6px;background:#ffe9a8;color:#7a5b00;font-size:10px;padding:1px 6px;border-radius:99px}
+  .item.off img{opacity:.45;filter:grayscale(1)}
+  .item.off .nm{color:var(--muted)}
+  .noimg{height:76px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#b7a89b;background:#f6f0e7;border-radius:8px}
+  .note{font-size:13px;color:var(--muted);line-height:1.8;margin-top:16px}
+  .note code{background:#f3ece2;padding:1px 5px;border-radius:4px;font-size:12px}
+  .msg{font-size:13px;color:var(--mcd-red);margin-left:auto}
+  .build{font-size:11px;opacity:.55;margin-left:4px}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <h1>🍔 菜品管理</h1>
+  <p class="sub">MCP 数据源端 · 决定哪些单品进入头像候选 <span id="build" class="build"></span></p>
+</header>
+
+<div class="wrap">
+  <section class="card">
+    <div class="stats">
+      <div>MCP 菜单全量<b id="statMenu">–</b></div>
+      <div>本地已有图<b id="statImg">–</b></div>
+      <div>当前上架<b id="statListed">–</b></div>
+      <div>本次已选<b class="sel" id="statSel">–</b></div>
+    </div>
+
+    <div class="bar">
+      <input id="q" type="text" placeholder="搜名字，如 巨无霸 / 薯条">
+      <label class="toggle"><input type="checkbox" id="onlyHint"> 只看建议排除</label>
+      <button type="button" class="btn" id="btnAll">全选</button>
+      <button type="button" class="btn" id="btnNone">全不选</button>
+      <button type="button" class="btn primary" id="btnSave">保存更改</button>
+      <span class="msg" id="msg"></span>
+    </div>
+
+    <div class="grid" id="grid"></div>
+
+    <p class="note">
+      <b>上下架不删数据：</b>状态只写在 <code>mcp/data/catalog.json</code> 的 <code>in_catalog</code> 字段里，
+      图片和菜单条目都保留，随时可以加回。<br>
+      <b>为什么有「建议排除」：</b>套餐/组合装是一托盘多件，摆到头顶看不出主体；玩具、联名帽、酱料包、
+      盲盒袋压根不是「那口」；同名重复条目是不同门店的近义 SKU，留一条就够。这是规则给出的提示，不影响你的选择。<br>
+      <b>缺图的单品</b>（<span id="statNoImg">–</span> 款）可以上架，但导出时会被跳过；先跑
+      <code>python3 mcp/fetch_images.py</code> 把官方图拉下来。
+    </p>
+  </section>
+</div>
+
+<script src="manage.js"></script>
+</body>
+</html>

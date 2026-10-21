@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今天什麦人 · 麦当劳头像生成器</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <h1>🍟 今天什麦人</h1>
+  <p class="sub">选个角色，戴顶麦麦帽，头顶今天想吃的那一口 —— 生成你的麦当劳头像</p>
+</header>
+
+<main class="layout">
+  <!-- 预览区 -->
+  <section class="stage">
+    <div class="canvas-wrap">
+      <canvas id="avatar" width="1000" height="1000"></canvas>
+    </div>
+    <div class="stage-actions">
+      <button id="btnRandom" class="btn primary">🎲 随机来一个</button>
+      <button id="btnDownload" class="btn">⬇️ 下载头像</button>
+    </div>
+    <div id="caption" class="caption"></div>
+  </section>
+
+  <!-- 控制区 -->
+  <section class="panel">
+    <div class="group">
+      <label class="group-title">① 选角色</label>
+      <div id="personList" class="chips"></div>
+    </div>
+
+    <div class="group">
+      <label class="group-title">② 模式</label>
+      <div class="mode-toggle">
+        <button data-mode="hat_only" class="mode-btn">只戴帽</button>
+        <button data-mode="with_food" class="mode-btn active">帽 + 食物</button>
+      </div>
+    </div>
+
+    <div class="group" id="foodGroup">
+      <label class="group-title">③ 选食物 <span class="hint">(共 <b id="foodCount">0</b> 款)</span></label>
+      <input id="foodSearch" class="search" type="text" placeholder="搜索名字，如 汉堡 / 薯条 / 可乐…">
+      <div class="filters" id="shapeFilters"></div>
+      <div id="foodList" class="food-grid"></div>
+    </div>
+
+    <div class="group">
+      <label class="group-title">④ 聊天框</label>
+      <div class="filters" id="bubbleFilters"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="promo-links">
+    <a href="wall.html">随机头像墙</a>
+    <span>·</span>
+    <a href="use-cases.html">能用在哪些地方</a>
+  </div>
+  <a href="../mcp/manage.html" class="manage-link">🛠 菜品管理 · 决定哪些单品进入头像候选</a>
+  <div class="foot-meta">菜单数据来自麦当劳中国 MCP · 参赛作品 · 非官方 · 图片版权归麦当劳所有</div>
+</footer>
+
+<script src="mc-avatar.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+{
+  "generated_at": "2026-10-21",
+  "source": "McDonald's China MCP (https://mcp.mcd.cn)",
+  "canvas": 1000,
+  "meta": {
+    "menu_total": 250,
+    "with_local_image": 227,
+    "listed": 40,
+    "snapshot": "2026-10-21"
+  },
+  "persons": [
+    {
+      "id": "a1",
+      "src": "assets/persons/a1.png",
+      "head_top_ratio": 0.212
+    },
+    {
+      "id": "a2",
+      "src": "assets/persons/a2.png",
+      "head_top_ratio": 0.135
+    },
+    {
+      "id": "a3",
+      "src": "assets/persons/a3.png",
+      "head_top_ratio": 0.189
+    },
+    {
+      "id": "a4",
+      "src": "assets/persons/a4.png",
+      "head_top_ratio": 0.127
+    },
+    {
+      "id": "a5",
+      "src": "assets/persons/a5.png",
+      "head_top_ratio": 0.15
+    },
+    {
+      "id": "a6",
+      "src": "assets/persons/a6.png",
+      "head_top_ratio": 0.12
+    },
+    {
+      "id": "a7",
+      "src": "assets/persons/a7.png",
+      "head_top_ratio": 0.139
+    }
+  ],
+  "hats": {
+    "plain": {
+      "src": "assets/hats/h1.png"
+    },
+    "food": {
+      "src": "assets/hats/h2.png"
+    }
+  },
+  "bubble": {
+    "src": "assets/hats/chat2.png"
+  },
+  "products": [
+    {
+      "code": "9900008752",
+      "name": "派",
+      "shape_type": "dessert",
+      "price": 8.5,
+      "kcal": 232.0,
+      "src": "assets/foods/9900008752.gif"
+    },
+    {
+      "code": "1406",
+      "name": "板烧鸡腿堡",
+      "shape_type": "chicken",
+      "price": 23.5,
+      "kcal": 391.0,
+      "src": "assets/foods/1406.png"
+    },
+    {
+      "code": "1440",
+      "name": "麦辣鸡腿汉堡",
+      "shape_type": "chicken",
+      "price": 22.5,
+      "kcal": 485.0,
+      "src": "assets/foods/1440.png"
+    },
+    {
+      "code": "4810",
+      "name": "薯条",
+      "shape_type": "fries",
+      "price": 14.5,
+      "kcal": 289.0,
+      "src": "assets/foods/4810.png"
+    },
+    {
+      "code": "1100",
+      "name": "巨无霸",
+      "shape_type": "burger",
+      "price": 26.5,
+      "kcal": 513.0,
+      "src": "assets/foods/1100.png"
+    },
+    {
+      "code": "1120",
+      "name": "双层吉士汉堡",
+      "shape_type": "breakfast",
+      "price": 23.0,
+      "kcal": 429.0,
+      "src": "assets/foods/1120.png"
+    },
+    {
+      "code": "1450",
+      "name": "麦香鸡",
+      "shape_type": "other",
+      "price": 17.0,
+      "kcal": 369.0,
+      "src": "assets/foods/1450.png"
+    },
+    {
+      "code": "9900008746",
+      "name": "鸡肉堡单品精选",
+      "shape_type": "burger",
+      "price": 23.5,
+      "kcal": null,
+      "src": "assets/foods/9900008746.gif"
+    },
+    {
+      "code": "9900008747",
+      "name": "牛肉堡单品精选",
+      "shape_type": "burger",
+      "price": 14.0,
+      "kcal": null,
+      "src": "assets/foods/9900008747.gif"
+    },
+    {
+      "code": "9900003586",
+      "name": "双层深海鳕鱼堡",
+      "shape_type": "burger",
+      "price": 24.0,
+      "kcal": 485.0,
+      "src": "assets/foods/9900003586.png"
+    },
+    {
+      "code": "1600",
+      "name": "麦香鱼",
+      "shape_type": "other",
+      "price": 22.0,
+      "kcal": 325.0,
+      "src": "assets/foods/1600.png"
+    },
+    {
+      "code": "521952",
+      "name": "龙焰鸡腿堡",
+      "shape_type": "chicken",
+      "price": 24.0,
+      "kcal": null,
+      "src": "assets/foods/521952.png"
+    },
+    {
+      "code": "9900006332",
+      "name": "薄皮V翅双拼十翅",
+      "shape_type": "chicken",
+      "price": 49.9,
+      "kcal": null,
+      "src": "assets/foods/9900006332.png"
+    },
+    {
+      "code": "511781",
+      "name": "培根安格斯厚牛堡",
+      "shape_type": "burger",
+      "price": 34.5,
+      "kcal": 707.0,
+      "src": "assets/foods/511781.png"
+    },
+    {
+      "code": "515837",
+      "name": "圆筒冰淇淋",
+      "shape_type": "drink",
+      "price": 5.0,
+      "kcal": 93.0,
+      "src": "assets/foods/515837.png"
+    },
+    {
+      "code": "521316",
+      "name": "高达吉士双牛堡",
+      "shape_type": "burger",
+      "price": 22.5,
+      "kcal": null,
+      "src": "assets/foods/521316.png"
+    },
+    {
+      "code": "520445",
+      "name": "薄皮焦香V翅",
+      "shape_type": "chicken",
+      "price": 15.5,
+      "kcal": 192.0,
+      "src": "assets/foods/520445.png"
+    },
+    {
+      "code": "4648",
+      "name": "不素之霸双层牛堡",
+      "shape_type": "burger",
+      "price": 26.5,
+      "kcal": 493.0,
+      "src": "assets/foods/4648.png"
+    },
+    {
+      "code": "1106",
+      "name": "培根蔬萃双层牛堡",
+      "shape_type": "burger",
+      "price": 24.5,
+      "kcal": 442.0,
+      "src": "assets/foods/1106.png"
+    },
+    {
+      "code": "511782",
+      "name": "芝士安格斯厚牛堡",
+      "shape_type": "burger",
+      "price": 31.5,
+      "kcal": 696.0,
+      "src": "assets/foods/511782.png"
+    },
+    {
+      "code": "9900016078",
+      "name": "蘸酱麦麦脆汁鸡",
+      "shape_type": "side",
+      "price": 11.9,
+      "kcal": null,
+      "src": "assets/foods/9900016078.png"
+    },
+    {
+      "code": "521953",
+      "name": "龙焰芝士棒鸡腿堡",
+      "shape_type": "chicken",
+      "price": 27.0,
+      "kcal": null,
+      "src": "assets/foods/521953.png"
+    },
+    {
+      "code": "510488",
+      "name": "燕麦奶",
+      "shape_type": "drink",
+      "price": 21.0,
+      "kcal": 132.0,
+      "src": "assets/foods/510488.png"
+    },
+    {
+      "code": "521881",
+      "name": "马来咖喱风味薄皮肉骨鸡3块",
+      "shape_type": "chicken",
+      "price": 15.5,
+      "kcal": null,
+      "src": "assets/foods/521881.png"
+    },
+    {
+      "code": "9900015726",
+      "name": "韩式甜辣酱鸡块8块",
+      "shape_type": "side",
+      "price": 19.9,
+      "kcal": null,
+      "src": "assets/foods/9900015726.png"
+    },
+    {
+      "code": "514851",
+      "name": "咖啡阿芙佳朵",
+      "shape_type": "drink",
+      "price": 15.0,
+      "kcal": 139.0,
+      "src": "assets/foods/514851.png"
+    },
+    {
+      "code": "9900015561",
+      "name": "麦咖啡冰爽一夏",
+      "shape_type": "drink",
+      "price": 9.9,
+      "kcal": null,
+      "src": "assets/foods/9900015561.gif"
+    },
+    {
+      "code": "521903",
+      "name": "三文鱼双虾至尊月堡",
+      "shape_type": "burger",
+      "price": 31.0,
+      "kcal": null,
+      "src": "assets/foods/521903.png"
+    },
+    {
+      "code": "521900",
+      "name": "咸蛋黄鸡腿蛋月堡",
+      "shape_type": "chicken",
+      "price": 25.0,
+      "kcal": null,
+      "src": "assets/foods/521900.png"
+    },
+    {
+      "code": "520361",
+      "name": "奶铁雪冰",
+      "shape_type": "drink",
+      "price": 23.0,
+      "kcal": null,
+      "src": "assets/foods/520361.png"
+    },
+    {
+      "code": "521548",
+      "name": "菠萝雪冰",
+      "shape_type": "drink",
+      "price": 9.9,
+      "kcal": null,
+      "src": "assets/foods/521548.png"
+    },
+    {
+      "code": "521737",
+      "name": "厚薯泥培根肉酱双牛堡",
+      "shape_type": "burger",
+      "price": 30.0,
+      "kcal": null,
+      "src": "assets/foods/521737.png"
+    },
+    {
+      "code": "521808",
+      "name": "美芝芝拉丝鸡肉堡",
+      "shape_type": "burger",
+      "price": 19.9,
+      "kcal": null,
+      "src": "assets/foods/521808.png"
+    },
+    {
+      "code": "1000",
+      "name": "汉堡包",
+      "shape_type": "burger",
+      "price": null,
+      "kcal": 248.0,
+      "src": "assets/foods/1000.png"
+    },
+    {
+      "code": "1010",
+      "name": "吉士汉堡包",
+      "shape_type": "breakfast",
+      "price": null,
+      "kcal": 294.0,
+      "src": "assets/foods/1010.png"
+    },
+    {
+      "code": "1705",
+      "name": "麦辣鸡翅4块",
+      "shape_type": "chicken",
+      "price": null,
+      "kcal": null,
+      "src": "assets/foods/1705.png"
+    },
+    {
+      "code": "520312",
+      "name": "原味双层深海鳕鱼堡",
+      "shape_type": "burger",
+      "price": null,
+      "kcal": 485.0,
+      "src": "assets/foods/520312.png"
+    },
+    {
+      "code": "520551",
+      "name": "培根芝士双牛堡",
+      "shape_type": "burger",
+      "price": null,
+      "kcal": null,
+      "src": "assets/foods/520551.png"
+    },
+    {
+      "code": "521147",
+      "name": "Hold不住鸡排堡（椒盐风味）",
+      "shape_type": "burger",
+      "price": null,
+      "kcal": null,
+      "src": "assets/foods/521147.png"
+    },
+    {
+      "code": "8317",
+      "name": "风味双层深海鳕鱼堡",
+      "shape_type": "burger",
+      "price": null,
+      "kcal": 485.0,
+      "src": "assets/foods/8317.png"
+    }
+  ]
+}

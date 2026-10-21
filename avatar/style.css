@@ -1,0 +1,104 @@
+:root{
+  --mcd-red:#dc142c;
+  --mcd-yellow:#ffcd00;
+  --ink:#33201a;
+  --paper:#faf7f2;
+  --card:#ffffff;
+  --line:#eadfce;
+  --muted:#8a6d55;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--paper);color:var(--ink);
+}
+.topbar{background:var(--mcd-red);color:#fff;padding:22px 28px;text-align:center}
+.topbar h1{margin:0;font-size:26px;letter-spacing:1px}
+.topbar .sub{margin:6px 0 0;font-size:14px;opacity:.95}
+
+.layout{
+  display:grid;grid-template-columns:minmax(320px,460px) 1fr;
+  gap:24px;max-width:1120px;margin:24px auto;padding:0 20px;align-items:start;
+}
+@media(max-width:820px){.layout{grid-template-columns:1fr}}
+
+/* 预览区 */
+.stage{position:sticky;top:20px}
+.canvas-wrap{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:12px;box-shadow:0 6px 24px rgba(120,80,40,.08);
+}
+#avatar{width:100%;height:auto;display:block;border-radius:10px;background:#fff}
+.stage-actions{display:flex;gap:10px;margin-top:14px}
+.btn{
+  flex:1;border:none;border-radius:10px;padding:12px 16px;font-size:15px;cursor:pointer;
+  background:#fff;color:var(--ink);border:1px solid var(--line);transition:.15s;font-weight:600;
+}
+.btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.btn.primary{background:var(--mcd-yellow);border-color:var(--mcd-yellow);color:var(--ink)}
+.caption{text-align:center;margin-top:12px;font-size:15px;color:var(--muted);min-height:22px}
+.caption b{color:var(--mcd-red)}
+
+/* 控制面板 */
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.group{margin-bottom:22px}
+.group:last-child{margin-bottom:0}
+.group-title{display:block;font-weight:700;font-size:15px;margin-bottom:10px}
+.hint{font-weight:400;color:var(--muted);font-size:12px}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  border:2px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;
+  padding:0;overflow:hidden;width:56px;height:56px;transition:.15s;
+}
+.chip img{width:100%;height:100%;object-fit:cover;display:block}
+.chip.active{border-color:var(--mcd-red);box-shadow:0 0 0 2px rgba(220,20,44,.2)}
+
+.mode-toggle{display:flex;gap:8px}
+.mode-btn{
+  flex:1;border:2px solid var(--line);background:#fff;border-radius:10px;padding:10px;
+  cursor:pointer;font-size:14px;font-weight:600;color:var(--muted);transition:.15s;
+}
+.mode-btn.active{border-color:var(--mcd-red);color:var(--mcd-red);background:#fff5f5}
+
+.search{
+  width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;
+  font-size:14px;margin-bottom:10px;
+}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.fbtn{
+  border:1px solid var(--line);background:#fff;border-radius:20px;padding:4px 12px;
+  font-size:12px;cursor:pointer;color:var(--muted);
+}
+.fbtn.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+.food-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:8px;
+  max-height:420px;overflow-y:auto;padding-right:4px;
+}
+.food-cell{
+  border:2px solid transparent;border-radius:10px;background:#fff;cursor:pointer;
+  padding:6px;text-align:center;transition:.12s;
+  font:inherit;color:inherit;line-height:1.2;
+}
+.food-cell:hover{border-color:var(--line)}
+.food-cell.active{border-color:var(--mcd-red);background:#fff5f5}
+.food-cell img{width:100%;height:52px;object-fit:contain;display:block}
+.food-cell span{font-size:10px;color:var(--muted);display:block;margin-top:3px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.foot{text-align:center;color:var(--muted);font-size:12px;padding:24px}
+.foot a{color:var(--mcd-red)}
+.foot .promo-links{display:flex;justify-content:center;gap:8px;margin-bottom:14px;font-size:13px}
+.foot .promo-links a{text-decoration:none;font-weight:600}
+.foot .promo-links a:hover{text-decoration:underline}
+.foot .manage-link{
+  display:inline-block;margin-bottom:10px;padding:8px 16px;
+  border:1px solid var(--line);border-radius:99px;background:#fff;
+  color:var(--mcd-red);font-weight:600;text-decoration:none;transition:.15s;
+}
+.foot .manage-link:hover{
+  border-color:var(--mcd-red);background:#fff5f5;
+  transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+.foot .foot-meta{opacity:.85}

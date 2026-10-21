@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>头像墙 · 今天什麦人</title>
+<meta name="description" content="整面墙都是随机合成的麦当劳风格头像：7 个角色、在售单品、麦麦帽随机组合。可平铺、可刷新、可下载，纯前端 Canvas 生成。">
+<link rel="stylesheet" href="promo.css">
+</head>
+<body>
+
+<header class="pnav">
+  <a class="pnav-brand" href="index.html"><span class="dot"></span>今天什麦人</a>
+  <nav>
+    <a href="wall.html" class="on">头像墙</a>
+    <a href="use-cases.html">用在哪里</a>
+    <a href="index.html" class="cta">做个自己的 →</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>每一个人，都是<em>随机拼出来的</em></h1>
+  <p>7 个角色 × 在售单品 × 麦麦帽，全部 Canvas 现场合成。<br>这面墙上没有一张图是提前存好的 —— 刷新就换一批。</p>
+  <div class="hero-stats" id="stats"></div>
+</section>
+
+<main class="wall" id="wall" aria-label="随机头像平铺墙"></main>
+
+<div class="wall-bar">
+  <button class="pbtn primary" id="btnShuffle" type="button">换一批</button>
+  <a class="pbtn" href="use-cases.html">看看能用在哪些地方</a>
+  <div class="wall-hint">鼠标移到任意一张上可看它今天吃了什么</div>
+</div>
+
+<footer class="pfoot">
+  <div class="pfoot-links">
+    <a href="index.html">头像生成器</a>
+    <a href="wall.html">头像墙</a>
+    <a href="use-cases.html">用在哪里</a>
+  </div>
+  菜单数据来自麦当劳中国 MCP · 参赛作品 · 非官方 · 图片版权归麦当劳所有
+</footer>
+
+<script src="mc-avatar.js"></script>
+<script src="promo.js"></script>
+<script>
+(async function () {
+  "use strict";
+
+  var wall = document.getElementById("wall");
+  var batch = 0;
+  var resizeTimer = null;
+
+  // 铺满一屏再多两行，避免首屏下方出现空白
+  function targetCount() {
+    var w = Math.max(window.innerWidth, 320);
+    var cols = Math.max(3, Math.ceil((w - 48) / 144));
+    var rows = Math.max(3, Math.ceil(window.innerHeight / 150) + 2);
+    return Math.min(120, cols * rows);
+  }
+
+  async function build() {
+    wall.innerHTML = "";
+    var total = targetCount();
+    var caps = new Map();
+    var frag = document.createDocumentFragment();
+
+    for (var i = 0; i < total; i++) {
+      var fig = document.createElement("figure");
+      fig.className = "tile";
+      fig.setAttribute("role", "img");
+
+      var cv = document.createElement("canvas");
+      cv.setAttribute("data-avatar", "");
+      cv.setAttribute("data-seed", "wall-" + batch + "-" + i);
+      cv.setAttribute("data-size", "140");
+      // 墙面不带聊天框：小尺寸下糊成一团黑块，纯人物+帽子+食物更干净
+      cv.setAttribute("data-bubble", "");
+
+      var cap = document.createElement("figcaption");
+      cap.className = "tag";
+      caps.set(cv, cap);
+
+      fig.appendChild(cv);
+      fig.appendChild(cap);
+      frag.appendChild(fig);
+    }
+    wall.appendChild(frag);
+
+    await Promo.fill(wall, 5, function (canvas, out) {
+      var cap = caps.get(canvas);
+      if (!cap) return;
+      var name = out && out.product ? out.product.name : "只戴帽";
+      cap.textContent = name;
+      canvas.parentElement.title = "今天什麦人 · " + name;
+      canvas.parentElement.setAttribute("aria-label", "随机头像：" + name);
+    });
+  }
+
+  async function fillStats() {
+    try {
+      var info = await McAvatar.list();
+      var persons = info.persons.length;
+      var products = info.products.length;
+      var combos = persons * (products + 1);
+      document.getElementById("stats").innerHTML = [
+        [persons, "个角色"],
+        [products, "款在售单品"],
+        [combos, "种组合"],
+      ].map(function (x) {
+        return "<div><b>" + x[0] + "</b>" + x[1] + "</div>";
+      }).join("");
+    } catch (err) {
+      console.warn("[wall] 统计失败", err);
+    }
+  }
+
+  document.getElementById("btnShuffle").addEventListener("click", function () {
+    batch += 1;
+    build();
+  });
+
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(build, 320);
+  });
+
+  fillStats();
+  await build();
+})();
+</script>
+</body>
+</html>

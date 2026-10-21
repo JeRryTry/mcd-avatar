@@ -1,0 +1,25 @@
+# 密钥（绝不提交）
+.env
+**/.env
+
+# 虚拟环境
+.venv/
+
+# Python 生成物
+__pycache__/
+*.pyc
+*.bak
+
+# 本地出图产物
+output/
+
+# MCP 原始响应（可由 MCP 重新采集，不参与版本管理）
+mcp/data/raw/
+
+# 编辑器 / 系统
+.DS_Store
+.idea/
+.vscode/
+
+# AI 助手工作目录（含本地会话记忆，不属于项目产物）
+.workbuddy/
