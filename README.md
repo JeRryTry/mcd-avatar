@@ -1,3 +1,7 @@
+<p align="right">
+  <a href="README.en.md"><b>English</b></a> &nbsp;·&nbsp; 中文
+</p>
+
 <p align="center">
   <img src="docs/logo.png" width="120" alt="今天什麦人 logo">
 </p>
@@ -224,6 +228,7 @@ pip install -r requirements.txt   # 仅 Pillow；avatar/ 零依赖
 │   └── check.py                自检：数据 / 产物 / 素材 / 出图一致性
 ├── docs/                       宣传图（logo / 头像墙 / 使用场景截图）
 ├── output/                     本地出图产物（已 gitignore）
+├── README.en.md                英文简介（简版，供非中文读者）
 ├── MCP_INTEGRATION.md          MCP 调用链说明
 ├── CONTEST_DECLARATION.md      参赛声明（官方模板，内容不可改）
 ├── mcp-config.example.json     脱敏 MCP 配置示例
