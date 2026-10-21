@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>今天什麦人 · 让你的项目快速拥有麦当劳新品头像</title>
+<meta name="description" content="零依赖的麦当劳头像引擎：一段 script + 一个 canvas，给你的博客、论坛、后台批量配上「简笔画人物 + 麦麦帽 + 麦当劳新品」头像。">
+<meta http-equiv="refresh" content="0; url=avatar/index.html">
+<link rel="icon" href="avatar/assets/hats/h1.png">
+<style>
+  :root{--mcd-red:#DA291C;--mcd-yellow:#FFC72C;--ink:#2c1a14;--muted:#8a7a70;--line:#ece4dc}
+  *{box-sizing:border-box}
+  body{
+    margin:0;min-height:100vh;display:grid;place-items:center;padding:32px 20px;
+    background:#fff;color:var(--ink);
+    font:15px/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  }
+  main{max-width:520px;text-align:center}
+  .logo{width:120px;height:120px;display:block;margin:0 auto 18px}
+  h1{margin:0 0 8px;font-size:26px;letter-spacing:-.4px}
+  .tag{margin:0 0 6px;font-size:15.5px;color:var(--mcd-red);font-weight:700}
+  .sub{margin:0 0 24px;color:var(--muted);font-size:13.5px}
+  .links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  a.btn{
+    display:inline-block;padding:11px 20px;border-radius:999px;text-decoration:none;
+    font-weight:700;font-size:14px;border:1.5px solid var(--mcd-red);color:var(--mcd-red);
+    transition:transform .15s ease,box-shadow .15s ease;
+  }
+  a.btn.primary{background:var(--mcd-red);color:#fff;box-shadow:0 6px 18px rgba(218,41,28,.22)}
+  a.btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(218,41,28,.24)}
+  .foot{margin-top:26px;color:var(--muted);font-size:11.5px;line-height:1.8}
+</style>
+</head>
+<body>
+<main>
+  <img class="logo" src="avatar/assets/hats/h1.png" alt="今天什麦人">
+  <h1>今天什麦人</h1>
+  <p class="tag">让你的项目快速拥有麦当劳新品头像</p>
+  <p class="sub">正在进入头像生成器…</p>
+  <div class="links">
+    <a class="btn primary" href="avatar/index.html">进入生成器</a>
+    <a class="btn" href="avatar/wall.html">头像墙</a>
+    <a class="btn" href="avatar/use-cases.html">能用在哪些地方</a>
+  </div>
+  <p class="foot">
+    菜单数据来自麦当劳中国 MCP · 参赛作品 · 非官方 · 图片版权归麦当劳所有
+  </p>
+</main>
+<script>location.replace("avatar/index.html");</script>
+</body>
+</html>
