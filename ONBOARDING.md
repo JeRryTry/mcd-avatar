@@ -142,26 +142,35 @@ JS 语法（有 node 时） → Python 出图链路。全部通过退出码为 0
 - [ ] 在官方仓库发报名 Issue（标题自定义；正文【参赛申请】填项目名称/地址/简介；正文内别用换行、链接别用 Markdown）
 - [ ] 截止：2026-10-25 23:59（北京时间）
 
-### 7.1 首次上传（仓库已在本地初始化好，317 个文件 / 约 22MB）
+### 7.1 上传与更新（已完成首次推送）
 
-先在 GitHub 网页新建**空仓库**（Public，**不要**勾 README / .gitignore / LICENSE，否则会冲突），然后：
+远端：`https://github.com/JeRryTry/mcd-avatar`（Public，`main`，317 个文件 / 约 22MB）。
+`origin` 已配好，日常改完直接：
 
 ```bash
 cd /Users/jerry/Desktop/code/MDC
-
-# 认证（二选一）
-brew install gh && gh auth login          # 推荐：浏览器授权，之后 git 自动带凭证
-# 或用 PAT：git config --global credential.helper osxkeychain
-
-git remote add origin https://github.com/<你的用户名>/<仓库名>.git
-git push -u origin main
+git add -A && git commit -m "说明改了什么"
+git push
 ```
+
+**本机网络注意**：这台机器**直连 GitHub 不通**，必须走本地代理，且 `gh` / `git` 都不吃 macOS 系统代理：
+
+```bash
+# gh 只读环境变量，必须和命令在同一个 shell
+export HTTPS_PROXY=http://127.0.0.1:6864
+export HTTP_PROXY=http://127.0.0.1:6864
+```
+
+`git` 侧已给**本仓库**设了 `http.proxy=http://127.0.0.1:6864`（全局未动）。
+代理端口变了就 `git config http.proxy http://127.0.0.1:<新端口>`；关掉代理时先 `git config --unset http.proxy`。
+若 `push` 提示要用户名密码，用 `git -c credential.helper='!gh auth git-credential' push`，
+或执行一次 `gh auth setup-git` 把凭证 helper 写进全局配置。
 
 `.gitignore` 已排除 `.env` / `.venv/` / `output/` / `mcp/data/raw/` / `.workbuddy/` / `__pycache__`，
 再提交也只会带上代码、文档和素材。
 
-**仓库设置建议**：Description 填 `麦当劳 MCP + 零依赖 Canvas 头像引擎`，
-Topics 加 `mcp` `mcdonalds` `avatar-generator` `canvas` `vanilla-js`。
+**仓库设置（已设）**：Description = `麦当劳 MCP + 零依赖 Canvas 头像引擎：给你的项目快速配上麦当劳新品头像`；
+Topics = `mcp` `mcdonalds` `avatar-generator` `canvas` `vanilla-js`。
 （Star 是唯一排名依据，Description 和 Topics 决定别人能不能搜到你。）
 
 ## 8. 排错速查
